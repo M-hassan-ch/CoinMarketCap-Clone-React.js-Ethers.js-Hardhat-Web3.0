@@ -1,0 +1,17 @@
+th, td{
+    /* border: 2px solid red; */
+    color: white;
+}
+p{
+    color: white;
+}
+
+tr:hover{
+    background: #171924;
+}
+table{
+    margin: 0;
+    border: 2px solid white;
+    width: 100%;
+
+}
