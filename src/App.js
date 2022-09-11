@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import CMC_Table from './components/CMC_Table';
 import CoinInfo from './components/CoinInfo';
+import TopTrendCard from './components/TopTendCard';
 import { useMoralis } from "react-moralis";
 import React, { useEffect } from 'react';
 import { Web3State } from './context/Web3State';
@@ -30,7 +31,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<React.Fragment>
-
+              <TopTrendCard/>
               <CMC_Table />
             </React.Fragment>}>
             </Route>

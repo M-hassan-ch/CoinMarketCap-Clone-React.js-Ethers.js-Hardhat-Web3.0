@@ -4,10 +4,9 @@ import Web3Context from '../context/web3Context';
 import data from './file.json';
 import ChevronDown from "../assets/svg/chevronDown"
 import Info from "../assets/svg/info"
-import style from '../css/cmcTable.module.css'
-// import Image from 'next/image'
 import More from '../assets/svg/more'
 import Star from '../assets/svg/star'
+import style from '../css/cmcTable.module.css'
 import ChevronUp from "../assets/svg/chevronUp"
 import { useNavigate } from "react-router-dom";
 // import getData from '../api/TopTenCoins';
@@ -46,9 +45,10 @@ var coinIcons = {
 function Coin_Name_Row(props) {
     return (
         <>
-            <p onClick={props.clicked} style={{ cursor: 'pointer' }}>
-                <img src={coinIcons[props.icon]} alt="" width={20} height={20} />
-                &nbsp;{props.name}
+            <img src={coinIcons[props.icon]} alt="" width={20} height={20} style={{ float: 'left' }} />
+
+            <p onClick={props.clicked} style={{ float: 'left', cursor: 'pointer' }}>
+                &nbsp;&nbsp;{props.name}
             </p>
         </>
     )
@@ -82,7 +82,7 @@ function CMC_Row(props) {
 
     const navigate_coinInfo = () => {
         console.log('iam clicked');
-        navigate('/currencies/info', { state: {symbol:`${props.coinSymbol}`, name: props.coinName, price:formatNum(props.price) } });
+        navigate('/currencies/info', { state: { symbol: `${props.coinSymbol}`, name: props.coinName, price: formatNum(props.price) } });
     }
     return (
         <>
@@ -100,6 +100,7 @@ function CMC_Row(props) {
                 <td className={`ps-md-3`}>
                     <Rate isIncrement={props.hRateIsIncrement} rate={`${formatNum(props.hRate)}%`} />
                 </td>
+
                 <td className={`ps-md-3`}>
                     <Rate isIncrement={props.dRateIsIncrement} rate={`${formatNum(props.dRate)}%`} />
                 </td>
@@ -111,7 +112,7 @@ function CMC_Row(props) {
                 <td className={`ps-md-3`}>
                     <p>{formatNum(props.volumeValue)}
                         <br />
-                        <span style={{ color: 'grey' }}> {formatNum(props.volumeCryptoValue)} ({props.coinSymbol})</span>
+                        <small style={{ color: 'grey' }}> {formatNum(props.volumeCryptoValue)} ({props.coinSymbol})</small>
                     </p>
                 </td>
 
@@ -124,6 +125,7 @@ function CMC_Row(props) {
                 </td>
 
                 <td className={`ps-md-3`}><More /></td>
+
             </tr>
         </>
     )
@@ -176,11 +178,11 @@ export default function CMC_Table() {
         <>
             <div className="container-fluid mt-5">
                 <div className="row">
-                    <div className="col-md-12" style={{ border: '2px solid yellow', padding: '0' }}>
-                        {/* style={{width:'100%'}} */}
-                        <table >
+                    <div className="col-md-12" style={{ padding: '0' }}>
+                        
+                        <table className='mx-auto'>
                             <thead >
-                                <tr>
+                                <tr style={{ background: '#171924' }}>
                                     <th className={`ps-md-3`}></th>
                                     <th className={`ps-md-3`}><b># &nbsp;</b><ChevronDown fill={'black'} /></th>
                                     <th className={`ps-md-3`}>Name</th>
